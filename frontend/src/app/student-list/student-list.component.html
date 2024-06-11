@@ -1,0 +1,11 @@
+
+<h2>Student List</h2>
+
+<button (click)="getdata()">Get list</button>
+    <ul>
+      <li *ngFor="let student of students">
+        {{ student.name }} ({{ student.age }}) - {{ student.grade }}
+        <button (click)="deleteStudent(student._id)">Delete</button>
+      </li>
+    </ul>
+<ngx-ui-loader> </ngx-ui-loader>
