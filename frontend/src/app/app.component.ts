@@ -1,13 +1,10 @@
 import { Component } from '@angular/core';
-import { NgxUiLoaderService } from "ngx-ui-loader"; 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent{
+export class AppComponent {
   title = 'frontend';
-  constructor(private ngxService: NgxUiLoaderService) {}
-  ngOnInit() {
-  }
 }

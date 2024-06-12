@@ -1,7 +1,6 @@
-// student-list.component.ts
-import { Component, OnInit } from '@angular/core';
-import { StudentService } from '../student.service';
-import { NgxUiLoaderService } from "ngx-ui-loader"; 
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { MatDialog, MatDialogRef, MatDialogConfig } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-student-list',
@@ -9,25 +8,32 @@ import { NgxUiLoaderService } from "ngx-ui-loader";
   styleUrls: ['./student-list.component.css']
 })
 export class StudentListComponent implements OnInit {
-  
-  students = [];
+  data: any;
+  selectedStudent: any;
 
-  constructor(private studentService: StudentService,  private ngxLoader: NgxUiLoaderService) {}
+  constructor(private http: HttpClient, private dialog: MatDialog) { }
 
   ngOnInit(): void {
-  }
-  getdata(){
-    this.ngxLoader.start("do-background-things");
-    this.studentService.getStudents().subscribe((students: any[]) => {
-      this.students = students;   
-    });
-    this.ngxLoader.stop("do-background-things");
-   
+    this.get();
   }
 
-  deleteStudent(id: string) {
-    this.studentService.deleteStudent(id).subscribe(() => {
-      this.students = this.students.filter((student) => student._id !== id);
-    });
+  get(): void {
+    this.http.get('http://localhost:3000/students')
+    .subscribe(response => {
+        this.data = response;
+      });
+  }
+
+  @ViewChild('viewMarksDialog') viewMarksDialog: any;
+
+  viewMarks(studentId: string): void {
+    this.http.get(`http://localhost:3000/students/${studentId}/grades`)
+    .subscribe(response => {
+        this.selectedStudent = response;
+        const dialogConfig = new MatDialogConfig();
+        dialogConfig.data = this.selectedStudent;
+        this.dialog.open(this.viewMarksDialog, dialogConfig);
+        console.log(response)
+      });
   }
 }

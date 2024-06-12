@@ -1,0 +1,11 @@
+div {
+    background-color: #f6f6f6;
+    border-radius: 10px; /* adds rounded corners */
+    width: 40%; /* makes the div wider */
+    margin: 20px; /* adds some margin and centers the div */
+    padding-right: 20px; /* adds some padding inside the div */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* adds a drop shadow */
+    border-color: black;
+    border-width: 5px;
+    border-style: solid; /* add this line */
+  }
