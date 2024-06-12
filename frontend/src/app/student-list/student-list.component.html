@@ -1,11 +1,18 @@
+<p>student-list works!</p>
 
-<h2>Student List</h2>
-
-<button (click)="getdata()">Get list</button>
-    <ul>
-      <li *ngFor="let student of students">
-        {{ student.name }} ({{ student.age }}) - {{ student.grade }}
-        <button (click)="deleteStudent(student._id)">Delete</button>
-      </li>
-    </ul>
-<ngx-ui-loader> </ngx-ui-loader>
+<!-- Student list -->
+<mat-list dense="false">
+    <div style="margin-bottom: 10px;">
+  <mat-list-item *ngFor="let student of data">
+    
+      <mat-icon mat-list-icon>person</mat-icon>
+      <h4 mat-line>{{ student.name }} ({{ student.age }})</h4>
+      <p mat-line>
+        <button mat-button color="primary" (click)="viewMarks(student._id)">
+          View Marks
+        </button>
+      </p>
+   
+  </mat-list-item>
+</div>
+</mat-list>

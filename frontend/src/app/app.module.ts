@@ -1,25 +1,27 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http'; // Import HttpClientModule
-import { FormsModule } from '@angular/forms';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StudentListComponent } from './student-list/student-list.component';
-import { AddStudentComponent } from './add-student/add-student.component';
-import { NgxUiLoaderModule } from "ngx-ui-loader";
+import { HttpClientModule } from '@angular/common/http';
+import { MaterialModule } from './material.module';
+import { CoreModule } from '../app/core/core.module';
+import { SharedModule } from '../app/shared/shared.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    StudentListComponent,
-    AddStudentComponent,
+    AppComponent, StudentListComponent
   ],
   imports: [
     BrowserModule,
-    NgxUiLoaderModule,
-    AppRoutingModule,
-    HttpClientModule, 
-    FormsModule // Move FormsModule to the imports array
+    BrowserAnimationsModule,
+    HttpClientModule,
+    MaterialModule,
+    CoreModule,
+    SharedModule
+   
   ],
   providers: [],
   bootstrap: [AppComponent]
