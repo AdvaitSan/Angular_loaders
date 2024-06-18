@@ -22,6 +22,9 @@
     "@angular/platform-browser-dynamic": "~9.1.13",
     "@angular/router": "~9.1.13",
     "material": "^0.9.11",
+    "primeicons": "^7.0.0",
+    "primeng": "^10.0.3",
+    "primeng-lts": "^12.2.5",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"

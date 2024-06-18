@@ -1,0 +1,16 @@
+<!-- add-student-dialog.component.html -->
+<mat-dialog-content>
+    <form #addStudentForm="ngForm"> <!-- Add ngForm directive here -->
+      <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input matInput type="text" ngModel name="name" required>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Age</mat-label>
+        <input matInput type="number" ngModel name="age" required>
+      </mat-form-field>
+      <button mat-raised-button color="primary" (click)="addStudentSubmit(addStudentForm.value)">
+        Add Student
+      </button>
+    </form>
+  </mat-dialog-content>

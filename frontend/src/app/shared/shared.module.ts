@@ -6,12 +6,14 @@ import { RouterModule } from '@angular/router';
 import { ErrorDialogService } from './errors/error-dialog.service';
 import { LoadingDialogService } from './loading/loading-dialog.service';
 import { MaterialModule } from '../material.module';
+import {ProgressSpinnerModule} from 'primeng/progressspinner';
+import { ButtonModule } from 'primeng/button';
 
 const sharedComponents = [LoadingDialogComponent, ErrorDialogComponent];
 
 @NgModule({
   declarations: [...sharedComponents],
-  imports: [CommonModule, RouterModule, MaterialModule],
+  imports: [CommonModule, RouterModule, MaterialModule,ProgressSpinnerModule],
   exports: [...sharedComponents],
   providers: [ErrorDialogService, LoadingDialogService],
   entryComponents: [...sharedComponents],

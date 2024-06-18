@@ -20,7 +20,7 @@ import { SharedModule } from '../app/shared/shared.module';
     HttpClientModule,
     MaterialModule,
     CoreModule,
-    SharedModule
+    SharedModule,
    
   ],
   providers: [],
